@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DreamCart | Order Confirmation</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .confirmation-main {
+            width: min(680px, 90%);
+            margin: 60px auto;
+        }
+
+        .confirmation-card {
+            padding: 38px;
+            border: 1px solid #e5e8ef;
+            border-radius: 18px;
+            background: #fff;
+            text-align: center;
+        }
+
+        .success-icon {
+            width: 78px;
+            height: 78px;
+            display: grid;
+            place-items: center;
+            margin: 0 auto 22px;
+            border-radius: 50%;
+            background: #e5f7eb;
+            color: #228344;
+            font-size: 42px;
+        }
+
+        .confirmation-card h1 {
+            margin: 0 0 14px;
+            font-size: clamp(28px, 5vw, 38px);
+        }
+
+        .confirmation-card > p {
+            color: #697589;
+            line-height: 1.8;
+        }
+
+        .delivery-box {
+            margin: 28px 0;
+            padding: 22px;
+            border: 1px solid #dfe5f7;
+            border-radius: 12px;
+            background: #f7f8ff;
+        }
+
+        .delivery-box span {
+            color: #6c7690;
+            font-size: 13px;
+        }
+
+        .delivery-box h2 {
+            margin: 10px 0;
+            color: #283b86;
+            font-size: 25px;
+        }
+
+        .confirmation-details {
+            margin: 25px 0;
+            padding-top: 20px;
+            border-top: 1px solid #e8ebf0;
+            text-align: left;
+        }
+
+        .confirmation-details div {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+
+        .confirmation-details span {
+            color: #778193;
+        }
+
+        .confirmation-details strong {
+            text-align: right;
+            overflow-wrap: anywhere;
+        }
+
+        .demo-warning {
+            margin: 20px 0;
+            padding: 13px;
+            border-radius: 8px;
+            background: #fff4df;
+            color: #805817;
+            font-size: 12px;
+            line-height: 1.7;
+            text-align: left;
+        }
+
+        .home-button {
+            display: block;
+            padding: 15px;
+            border-radius: 8px;
+            background: #283b86;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .home-button:hover {
+            background: #1e2c68;
+        }
+
+        @media (max-width: 520px) {
+            .confirmation-main {
+                margin: 30px auto;
+            }
+
+            .confirmation-card {
+                padding: 24px 18px;
+            }
+
+            .confirmation-details div {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body class="address-page">
+
+<header class="sales-header">
+    <a href="index.html" class="brand">DreamCart</a>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="design.html">Designs</a>
+        <a href="sales.html">Local Makers</a>
+    </nav>
+</header>
+
+<main class="confirmation-main">
+
+    <section class="confirmation-card">
+
+        <div class="success-icon">✓</div>
+
+        <span class="eyebrow">ORDER SUMMARY</span>
+
+        <h1 id="confirmationTitle">Your order has been recorded!</h1>
+
+        <p id="confirmationMessage">
+            Thank you for choosing DreamCart.
+        </p>
+
+        <div class="delivery-box">
+            <span>Estimated delivery date</span>
+            <h2 id="deliveryDate">Calculating...</h2>
+            <p id="deliveryMessage">Your selected shop's estimated timeline is shown below.</p>
+        </div>
+
+        <div class="confirmation-details">
+            <div>
+                <span>Order reference</span>
+                <strong id="orderReference">—</strong>
+            </div>
+
+            <div>
+                <span>Shop</span>
+                <strong id="confirmedShop">—</strong>
+            </div>
+
+            <div>
+                <span>Order total</span>
+                <strong id="confirmedTotal">—</strong>
+            </div>
+
+            <div>
+                <span>Payment status</span>
+                <strong id="confirmedPayment">—</strong>
+            </div>
+
+            <div>
+                <span>Delivery address</span>
+                <strong id="confirmedAddress">—</strong>
+            </div>
+        </div>
+
+        <div class="demo-warning" id="demoWarning">
+            Demo project: this confirmation is stored in your browser.
+            No real payment, shop notification, or delivery booking has occurred.
+        </div>
+
+        <a href="index.html" class="home-button">Back to DreamCart Home</a>
+
+    </section>
+
+</main>
+
+<footer class="sales-footer">
+    <a href="index.html" class="brand">DreamCart</a>
+    <p>Dream It. Design It. Get It.</p>
+</footer>
+
+<script>
+    const savedOrder = localStorage.getItem("dreamcartLastOrder");
+    let order = null;
+
+    try {
+        order = JSON.parse(savedOrder);
+    } catch {
+        order = null;
+    }
+
+    if (!order || !order.address) {
+        document.getElementById("confirmationTitle").textContent =
+            "No order found";
+
+        document.getElementById("confirmationMessage").textContent =
+            "Please select a shop and complete the checkout demo first.";
+
+        document.getElementById("deliveryDate").textContent = "Not available";
+        document.getElementById("deliveryMessage").textContent = "";
+        document.querySelector(".delivery-box").style.background = "#fff4df";
+        document.getElementById("demoWarning").hidden = true;
+    } else {
+        const date = new Date(order.estimatedDelivery);
+
+        document.getElementById("orderReference").textContent =
+            "DC-" + order.orderDate.replace(/\D/g, "").slice(0, 14);
+
+        document.getElementById("confirmedShop").textContent = order.shop;
+        document.getElementById("confirmedTotal").textContent = "₹" + order.total;
+        document.getElementById("confirmedPayment").textContent =
+            order.paymentStatus;
+
+        document.getElementById("confirmedAddress").textContent =
+            order.address.address + ", " +
+            order.address.city + ", " +
+            order.address.state + " - " +
+            order.address.pincode;
+
+        document.getElementById("deliveryDate").textContent =
+            date.toLocaleDateString("en-IN", {
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            });
+
+        document.getElementById("confirmationMessage").textContent =
+            "Thank you, " + order.address.fullName +
+            "! Your checkout demo has been completed.";
+
+        if (order.paymentMethod === "Cash on Delivery") {
+            document.getElementById("deliveryMessage").textContent =
+                "Estimated date only. The shop must accept and confirm the order.";
+        } else {
+            document.getElementById("deliveryMessage").textContent =
+                "Estimated date only. Your demo payment has not been processed.";
+        }
+
+        document.getElementById("confirmationTitle").textContent =
+            "Your order is confirmed ";
+    }
+</script>
+
+</body>
+</html>

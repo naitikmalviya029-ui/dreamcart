@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DreamCart | Local Makers</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="sales-page">
+
+<header class="sales-header">
+    <a href="index.html" class="brand">DreamCart</a>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="design.html">Designs</a>
+        <a href="sales.html" class="active">Local Makers</a>
+    </nav>
+</header>
+
+<main class="sales-main">
+
+    <section class="sales-hero">
+        <span class="eyebrow">YOUR IDEA, MADE REAL</span>
+        <h1>Find the best makers for you.</h1>
+        <p>Discover creative local shops and bring your selected design to life.</p>
+
+        <div class="filter-row">
+            <span>Explore services</span>
+            <button class="filter active" data-filter="all">All</button>
+            <button class="filter" data-filter="Printing">Printing</button>
+            <button class="filter" data-filter="Custom Gifts">Custom Gifts</button>
+            <button class="filter" data-filter="Design & Decor">Design & Decor</button>
+        </div>
+    </section>
+
+    <section class="makers-section">
+        <div class="section-heading">
+            <div>
+                <h2>Recommended makers</h2>
+                <p>Compare ratings, prices and estimated completion times.</p>
+            </div>
+            <span class="result-count" id="resultCount">4 makers</span>
+        </div>
+
+        <div class="makers-grid">
+
+            <!-- SHOP 1 -->
+            <article class="maker-card" data-service="Printing">
+                <div class="maker-image">
+                    <img src="https://images.openai.com/static-rsc-4/cETLjTYYb6Js2jokf4tPGasj-tfi4wrJV4IfECags3WQ6iT3KsrNyAe93h_UOKxCO79AWmdriEGnohKR3Mn4ejxG9TrLnPsPv2aEb0E54DhxoBl7Q6O8JnQJ9Ry94eTEJbqkO8pbKuvhAQ8gyLuPvUnuDiwNBxnKqJkGrFP1F4VA-H36h2MAEI3OqBpVAEPP?purpose=fullsize" alt="Rahul Prints">
+                    <span class="image-tag">POPULAR CHOICE</span>
+                </div>
+                <div class="maker-info">
+                    <div class="maker-title">
+                        <h3>Rahul Prints</h3>
+                        <span class="rating">★ 4.8</span>
+                    </div>
+                    <p class="maker-description">Quality printing to bring your ideas to life.</p>
+                    <div class="service-tags">
+                        <span>Printing</span>
+                        <span>Custom Designs</span>
+                    </div>
+                    <div class="maker-details">
+                        <div><small>Starting price</small><strong>₹199</strong></div>
+                        <div><small>Estimated time</small><strong>1–2 days</strong></div>
+                    </div>
+                    <button class="order-btn" data-shop="Rahul Prints" data-price="199">Order Now <span>→</span></button>
+                </div>
+            </article>
+
+            <!-- SHOP 2 -->
+            <article class="maker-card" data-service="Custom Gifts">
+                <div class="maker-image">
+                    <img src="https://images.openai.com/static-rsc-4/qEePDm0u7RacsFSWpN3oSQGeqeojx7B8pdK2z6q-QLR5Y86dRGUTpWw54VTuKBxmkrPMSRc2R1EJgxXaKyBNXmWkBWmqxSbDU9t3E3xpBcpPI0xbevEEH5pc9GQ369x9Bqtl15cQjbnJPkQaNihqLkzDaVh2LCtpAAiIHTEq_CJH2utgGUP6iGfDWn46um7T?purpose=fullsize" alt="Creative Corner">
+                    <span class="image-tag">CUSTOM MADE</span>
+                </div>
+                <div class="maker-info">
+                    <div class="maker-title">
+                        <h3>Creative Corner</h3>
+                        <span class="rating">★ 4.6</span>
+                    </div>
+                    <p class="maker-description">Personalized gifts and unique products made for you.</p>
+                    <div class="service-tags">
+                        <span>Custom Gifts</span>
+                        <span>Personalization</span>
+                    </div>
+                    <div class="maker-details">
+                        <div><small>Starting price</small><strong>₹299</strong></div>
+                        <div><small>Estimated time</small><strong>2–3 days</strong></div>
+                    </div>
+                    <button class="order-btn" data-shop="Creative Corner" data-price="299">Order Now <span>→</span></button>
+                </div>
+            </article>
+
+            <!-- SHOP 3 -->
+            <article class="maker-card" data-service="Design & Decor">
+                <div class="maker-image">
+                    <img src="https://images.openai.com/static-rsc-4/O6XIPnHF0EwJp8w44NYxBe3LLeG4izNwufLZZGgXg2oV3q6KgY6kXw7u_Mo56oWrEalPmVDA-YmqmMrgK8hhxbHBia_38y26hosfD90CZY-AyCBhEINJO2D1YVsVI9OpLIMdzEs6bL-lEv2Vm5crjHxxCOgyAlGQ_tlT1a2i0ldYAQlbUSuXaIol_bFtLKhS?purpose=fullsize" alt="Pixel Craft Studio">
+                    <span class="image-tag">CREATIVE STUDIO</span>
+                </div>
+                <div class="maker-info">
+                    <div class="maker-title">
+                        <h3>Pixel Craft Studio</h3>
+                        <span class="rating">★ 4.9</span>
+                    </div>
+                    <p class="maker-description">Creative artwork, personalized designs and decor.</p>
+                    <div class="service-tags">
+                        <span>Design & Decor</span>
+                        <span>Artwork</span>
+                    </div>
+                    <div class="maker-details">
+                        <div><small>Starting price</small><strong>₹399</strong></div>
+                        <div><small>Estimated time</small><strong>2–4 days</strong></div>
+                    </div>
+                    <button class="order-btn" data-shop="Pixel Craft Studio" data-price="399">Order Now <span>→</span></button>
+                </div>
+            </article>
+
+            <!-- SHOP 4 -->
+            <article class="maker-card" data-service="Printing">
+                <div class="maker-image">
+                    <img src="https://images.openai.com/static-rsc-4/jqQwR_lghOoSWLUYmB8ryupd7NDwL6FWYU9MHD-MggfUzNYY9A7Yp8k4iWyFySUcBbFoGTQoqbndETgRsJ47Jn4t0AX0wprRgtsUbxRCI9DkBHP82586t6Y6gBMc_agFFMkUJxDMTvN3tyqnvzhZwpNJA-3d5_WD8DdoUuGg93ADXDWuK75sFOe-KO3cfzdn?purpose=fullsize" alt="The Design House">
+                    <span class="image-tag">VALUE PICK</span>
+                </div>
+                <div class="maker-info">
+                    <div class="maker-title">
+                        <h3>The Design House</h3>
+                        <span class="rating">★ 4.7</span>
+                    </div>
+                    <p class="maker-description">Affordable printing and creative design solutions.</p>
+                    <div class="service-tags">
+                        <span>Printing</span>
+                        <span>Custom Products</span>
+                    </div>
+                    <div class="maker-details">
+                        <div><small>Starting price</small><strong>₹249</strong></div>
+                        <div><small>Estimated time</small><strong>1–3 days</strong></div>
+                    </div>
+                    <button class="order-btn" data-shop="The Design House" data-price="249">Order Now <span>→</span></button>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="trust-section">
+        <h2>Your idea deserves the right maker.</h2>
+        <p>Choose a shop that fits your creative needs and budget.</p>
+    </section>
+</main>
+
+<footer class="sales-footer">
+    <a href="index.html" class="brand">DreamCart</a>
+    <p>Dream It. Design It. Get It.</p>
+    <small>Demo marketplace. Shop ratings and prices are sample data.</small>
+</footer>
+
+<script>
+    const cards = document.querySelectorAll(".maker-card");
+    const filters = document.querySelectorAll(".filter");
+    const resultCount = document.getElementById("resultCount");
+
+    filters.forEach(button => {
+        button.addEventListener("click", () => {
+            const category = button.dataset.filter;
+            let count = 0;
+
+            filters.forEach(item => item.classList.remove("active"));
+            button.classList.add("active");
+
+            cards.forEach(card => {
+                const show = category === "all" ||
+                    card.dataset.service === category;
+
+                card.hidden = !show;
+                if (show) count++;
+            });
+
+            resultCount.textContent = count + (count === 1 ? " maker" : " makers");
+        });
+    });
+
+    document.querySelectorAll(".order-btn").forEach(button => {
+        button.addEventListener("click", () => {
+            localStorage.setItem("selectedShop", button.dataset.shop);
+            localStorage.setItem("selectedPrice", button.dataset.price);
+            window.location.href = "address.html";
+        });
+    });
+</script>
+
+</body>
+</html>

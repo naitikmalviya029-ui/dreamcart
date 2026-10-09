@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DreamCart | Delivery Address</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="address-page">
+
+<header class="sales-header">
+    <a href="index.html" class="brand">DreamCart</a>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="design.html">Designs</a>
+        <a href="sales.html">Local Makers</a>
+    </nav>
+</header>
+
+<main class="checkout-main">
+
+    <div class="checkout-heading">
+        <a href="sales.html" class="back-link">← Back to shops</a>
+        <span class="eyebrow">CHECKOUT</span>
+        <h1>Where should we deliver?</h1>
+        <p>Enter your delivery details to continue with your order.</p>
+    </div>
+
+    <div class="checkout-layout">
+
+        <!-- ADDRESS FORM -->
+        <section class="address-card">
+            <div class="form-heading">
+                <div class="form-icon">⌖</div>
+                <div>
+                    <h2>Delivery address</h2>
+                    <p>Fill in the details below.</p>
+                </div>
+            </div>
+
+            <form id="addressForm">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullName">Full name *</label>
+                        <input type="text" id="fullName" name="fullName"
+                            placeholder="Enter your full name" required
+                            autocomplete="name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Mobile number *</label>
+                        <input type="tel" id="phone" name="phone"
+                            placeholder="10-digit mobile number"
+                            pattern="[6-9][0-9]{9}" maxlength="10"
+                            inputmode="numeric" required autocomplete="tel">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">House number, building, street *</label>
+                    <textarea id="address" name="address" rows="3"
+                        placeholder="House / flat number, street, landmark"
+                        required autocomplete="street-address"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="city">City *</label>
+                        <input type="text" id="city" name="city"
+                            placeholder="Enter city" required
+                            autocomplete="address-level2">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="state">State *</label>
+                        <select id="state" name="state" required
+                            autocomplete="address-level1">
+                            <option value="">Select state</option>
+                            <option>Madhya Pradesh</option>
+                            <option>Maharashtra</option>
+                            <option>Uttar Pradesh</option>
+                            <option>Rajasthan</option>
+                            <option>Gujarat</option>
+                            <option>Delhi</option>
+                            <option>Bihar</option>
+                            <option>Chhattisgarh</option>
+                            <option>Haryana</option>
+                            <option>Himachal Pradesh</option>
+                            <option>Jharkhand</option>
+                            <option>Karnataka</option>
+                            <option>Kerala</option>
+                            <option>Odisha</option>
+                            <option>Punjab</option>
+                            <option>Tamil Nadu</option>
+                            <option>Telangana</option>
+                            <option>Uttarakhand</option>
+                            <option>West Bengal</option>
+                            <option>Andhra Pradesh</option>
+                            <option>Assam</option>
+                            <option>Goa</option>
+                            <option>Manipur</option>
+                            <option>Meghalaya</option>
+                            <option>Mizoram</option>
+                            <option>Nagaland</option>
+                            <option>Sikkim</option>
+                            <option>Tripura</option>
+                            <option>Arunachal Pradesh</option>
+                            <option>Andaman and Nicobar Islands</option>
+                            <option>Chandigarh</option>
+                            <option>Dadra and Nagar Haveli and Daman and Diu</option>
+                            <option>Jammu and Kashmir</option>
+                            <option>Ladakh</option>
+                            <option>Lakshadweep</option>
+                            <option>Puducherry</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="pincode">PIN code *</label>
+                        <input type="text" id="pincode" name="pincode"
+                            placeholder="6-digit PIN code"
+                            pattern="[0-9]{6}" maxlength="6"
+                            inputmode="numeric" required
+                            autocomplete="postal-code">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="addressType">Address type</label>
+                        <select id="addressType" name="addressType">
+                            <option value="Home">Home</option>
+                            <option value="Work">Work</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="instructions">
+                        Delivery instructions <span>(Optional)</span>
+                    </label>
+                    <textarea id="instructions" name="instructions" rows="2"
+                        placeholder="Landmark or other delivery details"></textarea>
+                </div>
+
+                <div class="privacy-note">
+                    <span>🔒</span>
+                    <p>Please check your address and phone number before continuing.</p>
+                </div>
+
+                <button type="submit" class="continue-btn">
+                    Continue to review <span>→</span>
+                </button>
+
+                <p class="form-message" id="formMessage" role="status" hidden></p>
+            </form>
+        </section>
+
+        <!-- ORDER SUMMARY -->
+        <aside class="order-summary">
+            <h2>Order summary</h2>
+            <p class="summary-subtitle">Your selected maker</p>
+
+            <div class="selected-shop">
+                <div class="summary-shop-icon">DC</div>
+                <div>
+                    <h3 id="shopName">Your selected shop</h3>
+                    <p>DreamCart maker</p>
+                </div>
+            </div>
+
+            <div class="summary-line">
+                <span>Starting price</span>
+                <strong id="shopPrice">—</strong>
+            </div>
+
+            <div class="summary-line">
+                <span>Delivery charges</span>
+                <strong>Calculated later</strong>
+            </div>
+
+            <div class="summary-total">
+                <span>Estimated subtotal</span>
+                <strong id="totalPrice">—</strong>
+            </div>
+
+            <p class="summary-note">
+                Final pricing and delivery charges must be confirmed by the shop.
+            </p>
+
+            <div class="checkout-steps">
+                <div class="step active">
+                    <span>1</span>
+                    <div><strong>Address</strong><small>Enter delivery details</small></div>
+                </div>
+                <div class="step">
+                    <span>2</span>
+                    <div><strong>Review</strong><small>Check your information</small></div>
+                </div>
+                <div class="step">
+                    <span>3</span>
+                    <div><strong>Order confirmation</strong><small>Confirm your request</small></div>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+</main>
+
+<footer class="sales-footer">
+    <a href="index.html" class="brand">DreamCart</a>
+    <p>Dream It. Design It. Get It.</p>
+</footer>
+
+<script>
+  
+
+    const shopName = localStorage.getItem("selectedShop");
+    const shopPrice = Number(localStorage.getItem("selectedPrice"));
+
+    document.getElementById("shopName").textContent =
+        shopName || "No shop selected";
+
+    if (shopName && Number.isFinite(shopPrice) && shopPrice > 0) {
+        document.getElementById("shopPrice").textContent = "₹" + shopPrice;
+        document.getElementById("totalPrice").textContent = "₹" + shopPrice;
+    }
+
+    const form = document.getElementById("addressForm");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        if (!form.reportValidity()) return;
+
+        if (!shopName || !Number.isFinite(shopPrice) || shopPrice <= 0) {
+            alert("Please return to Local Makers and select a shop first.");
+            return;
+        }
+
+        const addressData = {
+            fullName: document.getElementById("fullName").value.trim(),
+            phone: document.getElementById("phone").value.trim(),
+            address: document.getElementById("address").value.trim(),
+            city: document.getElementById("city").value.trim(),
+            state: document.getElementById("state").value,
+            pincode: document.getElementById("pincode").value.trim(),
+            addressType: document.getElementById("addressType").value,
+            instructions: document.getElementById("instructions").value.trim()
+        };
+
+        localStorage.setItem("deliveryAddress", JSON.stringify(addressData));
+        window.location.href = "pay.html";
+    });
+</script>

@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DreamCart | Payment</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .payment-main {
+            width: min(1000px, 90%);
+            margin: auto;
+            padding: 40px 0 70px;
+        }
+
+        .payment-heading {
+            margin-bottom: 28px;
+        }
+
+        .payment-heading h1 {
+            margin: 12px 0;
+            font-size: clamp(30px, 4vw, 42px);
+        }
+
+        .payment-heading p {
+            color: #778193;
+            line-height: 1.7;
+        }
+
+        .payment-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 24px;
+            align-items: start;
+        }
+
+        .payment-card {
+            padding: 28px;
+            background: #fff;
+            border: 1px solid #e5e8ef;
+            border-radius: 14px;
+        }
+
+        .payment-card h2 {
+            margin: 0 0 20px;
+            font-size: 21px;
+        }
+
+        .free-delivery {
+            padding: 16px;
+            margin-bottom: 22px;
+            border: 1px solid #bfe6ca;
+            border-radius: 10px;
+            background: #effaf1;
+            color: #236d39;
+        }
+
+        .free-delivery strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .free-delivery p {
+            margin: 0;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px;
+            margin: 12px 0;
+            border: 1px solid #dfe4ec;
+            border-radius: 9px;
+            cursor: pointer;
+        }
+
+        .payment-option:has(input:checked) {
+            border-color: #394fca;
+            background: #f6f7ff;
+        }
+
+        .payment-option input {
+            margin-top: 4px;
+            accent-color: #283b86;
+        }
+
+        .payment-option strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .payment-option small {
+            color: #778193;
+            line-height: 1.6;
+        }
+
+        .payment-note {
+            margin: 18px 0;
+            color: #778193;
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        .pay-button {
+            width: 100%;
+            padding: 15px;
+            border: 0;
+            border-radius: 8px;
+            background: #283b86;
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .pay-button:hover {
+            background: #1e2c68;
+        }
+
+        .pay-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .price-line {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin: 18px 0;
+            color: #596579;
+            font-size: 14px;
+        }
+
+        .price-line strong {
+            color: #202938;
+            text-align: right;
+        }
+
+        .price-total {
+            padding-top: 18px;
+            border-top: 1px solid #e5e8ef;
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .price-total strong {
+            color: #283b86;
+            font-size: 23px;
+        }
+
+        .delivery-address {
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e8ef;
+        }
+
+        .delivery-address h3 {
+            margin: 0 0 12px;
+            font-size: 15px;
+        }
+
+        .delivery-address p {
+            margin: 5px 0;
+            color: #667185;
+            font-size: 13px;
+            line-height: 1.6;
+            overflow-wrap: anywhere;
+        }
+
+        .payment-error {
+            color: #b42318;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 700px) {
+            .payment-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .payment-card {
+                padding: 21px;
+            }
+        }
+    </style>
+</head>
+
+<body class="address-page">
+
+<header class="sales-header">
+    <a href="index.html" class="brand">DreamCart</a>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="design.html">Designs</a>
+        <a href="sales.html">Local Makers</a>
+    </nav>
+</header>
+
+<main class="payment-main">
+
+    <div class="payment-heading">
+        <a href="address.html" class="back-link">← Back to address</a>
+        <span class="eyebrow">FINAL STEP</span>
+        <h1>Review and pay</h1>
+        <p>Review your order total and delivery details before continuing.</p>
+    </div>
+
+    <div class="payment-layout">
+
+        <section class="payment-card">
+            <h2>Choose payment method</h2>
+
+            <div class="free-delivery" id="freeDelivery">
+                <strong>🎉 No delivery charges for your first order!</strong>
+                <p>Your delivery fee is waived for this demo's first order on this browser.</p>
+            </div>
+
+            <form id="paymentForm">
+
+                <label class="payment-option">
+                    <input type="radio" name="paymentMethod"
+                        value="UPI" checked>
+                    <span>
+                        <strong>UPI</strong>
+                        <small>Google Pay, PhonePe or another UPI app — available with a payment gateway.</small>
+                    </span>
+                </label>
+
+                <label class="payment-option">
+                    <input type="radio" name="paymentMethod"
+                        value="Card">
+                    <span>
+                        <strong>Credit / Debit Card</strong>
+                        <small>Card payment — available with a payment gateway.</small>
+                    </span>
+                </label>
+
+                <label class="payment-option">
+                    <input type="radio" name="paymentMethod"
+                        value="Cash on Delivery">
+                    <span>
+                        <strong>Cash on Delivery</strong>
+                        <small>Demo selection only; actual COD requires shop and delivery support.</small>
+                    </span>
+                </label>
+
+                <p class="payment-note">
+                    Demo checkout: no money will be charged. Real online payments
+                    must be processed securely through a payment provider.
+                </p>
+
+                <button type="submit" class="pay-button" id="payButton">
+                    Continue with  order
+                </button>
+
+                <p id="paymentError" class="payment-error" hidden></p>
+            </form>
+        </section>
+
+        <aside class="payment-card">
+            <h2>Order summary</h2>
+
+            <div class="price-line">
+                <span>Selected shop</span>
+                <strong id="summaryShop">—</strong>
+            </div>
+
+            <div class="price-line">
+                <span>Product / service</span>
+                <strong id="productPrice">—</strong>
+            </div>
+
+            <div class="price-line">
+                <span>Delivery charges</span>
+                <strong id="deliveryPrice">—</strong>
+            </div>
+
+            <div class="price-line price-total">
+                <span>Total to pay</span>
+                <strong id="grandTotal">—</strong>
+            </div>
+
+            <div class="delivery-address">
+                <h3>Delivering to</h3>
+                <p id="customerName"></p>
+                <p id="customerPhone"></p>
+                <p id="customerAddress"></p>
+            </div>
+        </aside>
+
+    </div>
+</main>
+
+<footer class="sales-footer">
+    <a href="index.html" class="brand">DreamCart</a>
+    <p>Dream It. Design It. Get It.</p>
+</footer>
+
+<script>
+    const shop = localStorage.getItem("selectedShop");
+    const price = Number(localStorage.getItem("selectedPrice"));
+    const addressText = localStorage.getItem("deliveryAddress");
+
+    const error = document.getElementById("paymentError");
+    const payButton = document.getElementById("payButton");
+
+    let address = null;
+
+    try {
+        address = JSON.parse(addressText);
+    } catch {
+        address = null;
+    }
+
+    if (!shop || !Number.isFinite(price) || price <= 0 || !address) {
+        document.querySelector(".payment-layout").hidden = true;
+        error.hidden = false;
+        error.textContent =
+            "Your checkout details are missing. Please select a shop and enter your address first.";
+    } else {
+        const firstOrder = localStorage.getItem("dreamcartFirstOrderUsed") !== "yes";
+        const deliveryFee = firstOrder ? 0 : 30;
+        const total = price + deliveryFee;
+
+        document.getElementById("summaryShop").textContent = shop;
+        document.getElementById("productPrice").textContent = "₹" + price;
+        document.getElementById("deliveryPrice").textContent =
+            deliveryFee === 0 ? "FREE" : "₹" + deliveryFee;
+        document.getElementById("grandTotal").textContent = "₹" + total;
+
+        document.getElementById("freeDelivery").hidden = !firstOrder;
+
+        document.getElementById("customerName").textContent = address.fullName;
+        document.getElementById("customerPhone").textContent = address.phone;
+        document.getElementById("customerAddress").textContent =
+            address.address + ", " + address.city + ", " +
+            address.state + " - " + address.pincode;
+
+        document.getElementById("paymentForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const method = document.querySelector(
+                'input[name="paymentMethod"]:checked'
+            ).value;
+
+            /*
+              DEMO ONLY:
+              This does not collect payment or transfer money.
+              Connect a real payment gateway and verify payment on
+              your backend before confirming a prepaid order.
+            */
+
+            const order = {
+                shop: shop,
+                price: price,
+                deliveryFee: deliveryFee,
+                total: total,
+                paymentMethod: method,
+                paymentStatus: method === "Cash on Delivery"
+                    ? "COD requested (demo)"
+                    : "Demo only — not paid",
+                orderDate: new Date().toISOString(),
+                estimatedDelivery: new Date(
+                    Date.now() + 3 * 24 * 60 * 60 * 1000
+                ).toISOString(),
+                address: address
+            };
+
+            localStorage.setItem("dreamcartLastOrder", JSON.stringify(order));
+
+            if (firstOrder) {
+                localStorage.setItem("dreamcartFirstOrderUsed", "yes");
+            }
+
+            window.location.href = "confirmation.html";
+        });
+    }
+</script>
+
+</body>
+</html>
