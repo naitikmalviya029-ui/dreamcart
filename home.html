@@ -1,0 +1,149 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DreamCart | Design Your Dream</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="yellowpage">
+
+    <!-- Header -->
+    <header class="navbar">
+
+        <div class="logo">
+            dream<span>cart</span>
+        </div>
+
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            
+        </nav>
+
+    </header>
+
+
+    <!-- Main Hero Section -->
+    <main class="hero">
+
+        <div class="hero-content">
+
+            <p class="welcome">WELCOME TO DREAMCART</p>
+
+            <h1>
+                Dream It.
+                <span>Design It.</span>
+                Get It.
+            </h1>
+
+            <p class="subtitle">
+                Turn your ideas into reality with creative designs
+                made specially for you.
+            </p>
+
+            <div class="dream-box">
+
+                <h2>What do you want to create?</h2>
+
+                <div class="search-area">
+
+                    <input
+                        type="text"
+                        id="productInput"
+                        placeholder="Describe your dream product..."
+                    >
+
+                    <button onclick="generateDesigns()">
+                        Generate Designs
+                    </button>
+
+                </div>
+
+                <p class="hint">
+                    Describe your product idea and discover creative designs.
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Features -->
+    <section class="features">
+
+        <div class="feature">
+            <div class="feature-icon">💡</div>
+            <h3>Share Your Idea</h3>
+            <p>Tell us what you want to create.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🎨</div>
+            <h3>Explore Designs</h3>
+            <p>Discover creative product designs.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🛒</div>
+            <h3>Choose & Buy</h3>
+            <p>Select the design you love.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🚚</div>
+            <h3>Fast Delivery</h3>
+            <p>Get your product delivered to you.</p>
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 DreamCart. All rights reserved.</p>
+    </footer>
+
+
+    <script>
+
+        function generateDesigns() {
+
+            const product =
+                document.getElementById("productInput").value;
+
+            if (product=== "") {
+
+                alert("Please enter what you want to create");
+
+                return;
+            }
+
+            localStorage.setItem("dreamProduct", product);
+            window.location.href="designs.html";
+        }
+
+            
+
+    </script>
+
+</body>
+
+</html>
+```
+
+**Removed:**
+
+* `sales.html` from the navigation
+* `design.html` — there was actually no `design.html` reference in this particular code
+* The **Sales** navigation link
+
+Your flow from this page is now:
+
+**Login → `index**

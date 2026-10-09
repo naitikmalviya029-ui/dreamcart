@@ -1,149 +1,209 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DreamCart - Login</title>
 
-    <title>DreamCart | Design Your Dream</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-    <link rel="stylesheet" href="style.css">
+        body {
+            background: #f5f7fa;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            width: 400px;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+
+        .tagline {
+            text-align: center;
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #111827;
+            font-size: 24px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 7px;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            font-size: 14px;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .forgot {
+            text-align: right;
+            margin-top: -8px;
+            margin-bottom: 20px;
+        }
+
+        .forgot a {
+            color: #2563eb;
+            font-size: 13px;
+            text-decoration: none;
+        }
+
+        .forgot a:hover {
+            text-decoration: underline;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 13px;
+            background: #1f2937;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .login-btn:hover {
+            background: #111827;
+        }
+
+        .signup {
+            text-align: center;
+            margin-top: 22px;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .signup a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .signup a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 12px;
+            color: #9ca3af;
+        }
+    </style>
 </head>
 
-<body class="yellowpage">
+<body>
 
-    <!-- Header -->
-    <header class="navbar">
+    <div class="login-container">
 
-        <div class="logo">
-            dream<span>cart</span>
+        <div class="logo">dreamcart</div>
+
+        <div class="tagline">
+            Dream It. Design It. Get It.
         </div>
 
-        <nav>
-            <a href="index.html" class="active">Home</a>
-            
-        </nav>
+        <h2>Welcome Back</h2>
 
-    </header>
+        <form>
 
-
-    <!-- Main Hero Section -->
-    <main class="hero">
-
-        <div class="hero-content">
-
-            <p class="welcome">WELCOME TO DREAMCART</p>
-
-            <h1>
-                Dream It.
-                <span>Design It.</span>
-                Get It.
-            </h1>
-
-            <p class="subtitle">
-                Turn your ideas into reality with creative designs
-                made specially for you.
-            </p>
-
-            <div class="dream-box">
-
-                <h2>What do you want to create?</h2>
-
-                <div class="search-area">
-
-                    <input
-                        type="text"
-                        id="productInput"
-                        placeholder="Describe your dream product..."
-                    >
-
-                    <button onclick="generateDesigns()">
-                        Generate Designs
-                    </button>
-
-                </div>
-
-                <p class="hint">
-                    Describe your product idea and discover creative designs.
-                </p>
-
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    placeholder="Enter your email"
+                    required
+                >
             </div>
 
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    placeholder="Enter your password"
+                    required
+                >
+            </div>
+
+            <div class="forgot">
+                <a href="#">Forgot password?</a>
+            </div>
+
+            <button type="button" class="login-btn"
+            onclick="loginUser()">
+            Login
+            </button>
+
+        </form>
+
+        <div class="signup">
+            Don't have an account?
+            <a href="#">Create Account</a>
         </div>
 
-    </main>
-
-
-    <!-- Features -->
-    <section class="features">
-
-        <div class="feature">
-            <div class="feature-icon">💡</div>
-            <h3>Share Your Idea</h3>
-            <p>Tell us what you want to create.</p>
+        <div class="footer">
+            © 2026 DreamCart. All rights reserved.
         </div>
 
-        <div class="feature">
-            <div class="feature-icon">🎨</div>
-            <h3>Explore Designs</h3>
-            <p>Discover creative product designs.</p>
-        </div>
-
-        <div class="feature">
-            <div class="feature-icon">🛒</div>
-            <h3>Choose & Buy</h3>
-            <p>Select the design you love.</p>
-        </div>
-
-        <div class="feature">
-            <div class="feature-icon">🚚</div>
-            <h3>Fast Delivery</h3>
-            <p>Get your product delivered to you.</p>
-        </div>
-
-    </section>
-
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 DreamCart. All rights reserved.</p>
-    </footer>
+    </div>
+    
 
 
     <script>
-
-        function generateDesigns() {
-
-            const product =
-                document.getElementById("productInput").value;
-
-            if (product=== "") {
-
-                alert("Please enter what you want to create");
-
-                return;
-            }
-
-            localStorage.setItem("dreamProduct", product);
-            window.location.href="designs.html";
+        function loginUser() {
+            localStorage.setItem("loggedIn","true");
+            window.location.href = "home.html";
         }
-
-            
-
     </script>
 
 </body>
-
 </html>
-```
-
-**Removed:**
-
-* `sales.html` from the navigation
-* `design.html` — there was actually no `design.html` reference in this particular code
-* The **Sales** navigation link
-
-Your flow from this page is now:
-
-**Login → `index**
+   
+</body>
+</html>
